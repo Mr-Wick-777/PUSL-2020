@@ -9,15 +9,11 @@ import Footer from "../../components/footer/Footer"
 import React from 'react';
 
 function LandingPage(){
-    const navbarLinks = [
-        { url: "#", title: "Report Incident" },
-        { url: "#", title: "Articles" },
-        { url: "#", title: "Sign In" },
-      ];
+  
     
       return (
-        <div className="App">
-          <Navbar navbarLinks={navbarLinks} />
+        <div className="">
+          <Navbar />
           <Hero imageSrc={Trash_Hero} />
 
           <div className="cta-section">

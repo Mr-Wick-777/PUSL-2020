@@ -13,19 +13,19 @@ function Footer() {
       <div class="col-md-3">
         <h3>Quick Links</h3>
         <ul class="list-unstyled">
-          <li><a href="#">Home</a></li>
+          {/* <li><a href="#">Home</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#">Contact</a></li> */}
         </ul>
       </div>
       <div class="col-md-3">
         <h3>Connect With Us</h3>
         <ul class="list-unstyled social-links">
-          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          {/* <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
           <li><a href="#"><i class="fab fa-twitter"></i></a></li>
           <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li> */}
         </ul>
       </div>
     </div>
