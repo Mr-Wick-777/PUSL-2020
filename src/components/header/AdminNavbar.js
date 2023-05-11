@@ -4,7 +4,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import CleanCityLogo from "../../assets/CleanCityLogo.png";
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ navbarLinks }) => {
+const AdminNavbar = ({ navbarLinks }) => {
   // Determines if the "menu icon" was clicked or not. Note that this icon is only visible when the window width is small.
   const [menuClicked, setMenuClicked] = useState(false);
 
@@ -14,7 +14,9 @@ const Navbar = ({ navbarLinks }) => {
 
   return (
     <nav className="navbar">
-      <Link to="/" className="navbar__logo" ><span className="navbar__logo"><img src={CleanCityLogo} alt="CleanCity" /></span></Link>
+          
+     <span className="navbar__logo"><img src={CleanCityLogo} alt="CleanCity" /></span>
+    
       {menuClicked ? (
         <FiX size={25} className={"navbar__menu"} onClick={toggleMenuClick} />
       ) : (
@@ -24,23 +26,19 @@ const Navbar = ({ navbarLinks }) => {
           onClick={toggleMenuClick}
         />
       )}
+      
       <ul
         className={
           menuClicked ? "navbar__list navbar__list--active" : "navbar__list"
         }
       >
         
+        
         <li className="navbar__item">
-          <Link to="/" className="navbar__link">Home</Link>
+          <Link to="/registeremployees" className="navbar__link">Register Employees</Link>
         </li>
         <li className="navbar__item">
-          <Link to="/incidents" className="navbar__link">Report Incidents</Link>
-        </li>
-        <li className="navbar__item">
-          <Link to="/articles" className="navbar__link">Articles</Link>
-        </li>
-        <li className="navbar__item">
-          <Link to="/gtflogin" className="navbar__link">GTF Login</Link>
+          <Link to="/post-articles" className="navbar__link">Post Articles</Link>
         </li>
         <li className="navbar__item">
           <Link to="/gtflogin" className="navbar__link">Profile</Link>
@@ -51,4 +49,4 @@ const Navbar = ({ navbarLinks }) => {
   );
 };
 
-export default Navbar;
+export default AdminNavbar;

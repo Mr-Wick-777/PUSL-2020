@@ -45,4 +45,18 @@
   .social-links li a:hover {
     color: #9DC08B;
   }
+
+.left{
+  width: 50%;
+}
+
+.right{
+  width: 50%;
+}
+  .container{
+ 
+    display: flex;
+    flex-direction: row;
+    
+  }
   

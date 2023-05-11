@@ -1,35 +1,35 @@
 import React from 'react';
 import "./Footer.css"
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
+    <footer className="footer">
+  <div className="container">
+    
+      <div className="left">
         <h3>About Us</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel felis mauris. Aliquam erat volutpat.</p>
+        <p>'Clean City' by the Colombo Municipal Council web application is designed to help local citizens report incidents of garbage and other waste. GTF members can report incidents using the web application's simple interface, and Green Captains and Admins can manage and approve these reports to keep the community clean and safe."</p>
       </div>
-      <div class="col-md-3">
+      <div className="right">
         <h3>Quick Links</h3>
-        <ul class="list-unstyled">
-          {/* <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li> */}
+        <ul className="list-unstyled">
+          <li><Link to="/" className="navbar__link">Home</Link></li>
+          <li><Link to="/cleancitycaptainh" className="navbar__link">Captain</Link></li>
+          <li><Link to="/cleancityadmin" className="navbar__link">Web Master Admin</Link></li>
+        
         </ul>
-      </div>
-      <div class="col-md-3">
+     
         <h3>Connect With Us</h3>
-        <ul class="list-unstyled social-links">
-          {/* <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li> */}
+        <ul className="list-unstyled social-links">
+          {/* <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
+          <li><a href="#"><i className="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i className="fab fa-instagram"></i></a></li>
+          <li><a href="#"><i className="fab fa-linkedin-in"></i></a></li> */}
         </ul>
       </div>
     </div>
-  </div>
+
 </footer>
   );
 }

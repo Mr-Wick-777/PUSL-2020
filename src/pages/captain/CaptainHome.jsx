@@ -1,4 +1,4 @@
-import "./HomePage.css";
+// import "./HomePage.css";
 import Trash_Hero from "../../assets/Trash-Hero.jpg";
 import maps_slider from "../../assets/maps-slider.jpg";
 import feature1 from "../../assets/feature1.svg";
@@ -7,15 +7,14 @@ import feature3 from "../../assets/feature3.svg";
 
 // import travel_03 from "../../assets/travel-03.jpg";
 import Hero from "../../components/hero/Hero";
-import Navbar from "../../components/header/Navbar";
+import CaptainNavbar from "../../components/header/CaptainNavbar";
 import Slider from "../../components/slider/Slider";
 import Footer from "../../components/footer/Footer"
 // import { useInView } from "react-intersection-observer";
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 
-function LandingPage(){
+function CaptainHome(){
   // const { ref, inView } = useInView({
   //   /* Optional options */
   //   threshold: 0.1,
@@ -23,13 +22,14 @@ function LandingPage(){
     
       return (
         <div className="dd">
-          <Navbar />
+          <CaptainNavbar />
+           <div className="cta-section">
+                <h2>Clean City Admin</h2>
+                
+            </div>
           <Hero imageSrc={Trash_Hero} />
 
-          <div className="cta-section">
-                <h2>Join the Green Task Force</h2>
-                <Link to="/gtfsignup" className="navbar__link"> <button className="cta-button">Join now</button></Link>
-            </div>
+          
           <Slider
             imageSrc={maps_slider}
             title={"Why CleanCity?"}
@@ -77,7 +77,7 @@ function LandingPage(){
       </div>
 
 
-         <Slider
+      <Slider
             imageSrc={maps_slider}
             title={"Clean City"}
             subtitle={"Contribute to make the world a better place"}
@@ -91,4 +91,4 @@ function LandingPage(){
       );
 }
 
-export default LandingPage;
+export default CaptainHome;

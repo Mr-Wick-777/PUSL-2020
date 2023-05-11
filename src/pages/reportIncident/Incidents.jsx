@@ -7,6 +7,7 @@ import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerIconRetina from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import './Incidents.css'; // import your CSS file
+import Footer from "../../components/footer/Footer"
 
 const GarbageReportPage = () => {
   const [position, setPosition] = useState({ lat: null, lng: null });
@@ -21,18 +22,14 @@ const GarbageReportPage = () => {
 
   const MapMarker = ({ location, setLocation }) => {
     useMapEvents({
-      click: (event) => {
-        setLocation({
-          lat: event.latlng.lat,
-          lng: event.latlng.lng,
-        });
-        setPosition({
-          lat: event.latlng.lat,
-          lng: event.latlng.lng,
-        });
-        console.log(`Latitude: ${event.latlng.lat}, Longitude: ${event.latlng.lng}`);
-      },
-    });
+ click: (event) => {
+   setLocation({
+     lat: event.latlng.lat,
+     lng: event.latlng.lng,
+   });
+   console.log(`Latitude: ${event.latlng.lat}, Longitude: ${event.latlng.lng}`);
+ },
+});
 
     const customIcon = icon({
       iconUrl: markerIcon,
@@ -48,11 +45,18 @@ const GarbageReportPage = () => {
       <Marker position={[location.lat, location.lng]} icon={customIcon}>
         <Popup>Garbage location</Popup>
       </Marker>
+      
     );
   };
 
   const handleImageUpload = (e) => {
     setImages([...images, e.target.files[0]]);
+  };
+
+  const handleImageRemove = (index) => {
+    const newImages = [...images];
+    newImages.splice(index, 1);
+    setImages(newImages);
   };
 
   const handleTitleChange = (e) => {
@@ -84,13 +88,21 @@ const GarbageReportPage = () => {
   return (
     <div>
     <Navbar />
-    <div className="garbage-report-page">
-      
-
+    <div className="subtitle">
+                <h2>Report New Garbage incident</h2>
+               
+            </div>
+    <div className='garbage-report-page'>
+   
+    
+    <div className="garbage-report-form">
+ 
       <div className="map-container">
+          
+<label>Select Garbage Location</label>
         <MapContainer
           center={[location.lat, location.lng]}
-          zoom={12}
+          zoom={8}
           className="map"
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -100,21 +112,40 @@ const GarbageReportPage = () => {
 
       <form onSubmit={handleSubmit}>
         <label>
-          Title:
+        Type of Garbage:
           <input type="text" value={title} onChange={handleTitleChange} />
         </label>
         <br />
         <label>
-          Description:
+        Impact on Environment:
           <textarea value={description} onChange={handleDescriptionChange} />
         </label>
         <br />
-        <label><input type="file" onChange={handleImageUpload} />
-</label>
+        <label htmlFor="images" className="custom-file-upload">
+            Upload images
+             <input type="file" id="images" name="images" accept="image/*" onChange={handleImageUpload} />
+          </label>
+          <div className='image-container'>
+
+          <div className="selected-images">
+          {images.map((image, index) => (
+            <div key={index} className="image-preview">
+              <img src={URL.createObjectURL(image)} alt='f' /> 
+              {/* alt={`Image ${index + 1}`} */}
+              <button type="button" onClick={() => handleImageRemove(index)}>Remove</button>
+            </div>
+          ))}
+          
+          </div>
+          
+          </div>
+          {console.log(images)}
 <br />
 <button type="submit">Submit Report</button>
 </form>
 </div></div>
+<Footer/>
+</div>
 );
 };
 
