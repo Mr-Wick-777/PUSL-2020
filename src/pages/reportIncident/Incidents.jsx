@@ -10,7 +10,7 @@ import './Incidents.css'; // import your CSS file
 import Footer from "../../components/footer/Footer"
 
 const GarbageReportPage = () => {
-  const [position, setPosition] = useState({ lat: null, lng: null });
+  const [position] = useState({ lat: null, lng: null });
   const [images, setImages] = useState([]);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
